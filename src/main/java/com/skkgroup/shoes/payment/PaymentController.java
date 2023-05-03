@@ -16,7 +16,7 @@ public class PaymentController {
     public ChargeResponse chargeCreditCard(@RequestBody ChargeRequest chargeRequest) throws StripeException {
 
         Charge rass=paymentService.chargeCreditCard(chargeRequest.getToken(), chargeRequest.getAmount(), chargeRequest.getCurrency(), chargeRequest.getDescription());
-
+        System.out.println(chargeRequest.getAmount());
     return ChargeResponse.builder().transactionId(rass.getBalanceTransaction())
             .status(rass.getStatus())
             .id(rass.getId())
